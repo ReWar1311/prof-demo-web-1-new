@@ -5,7 +5,7 @@
 export const SITE = {
   groupName: "CQuInf",
   groupFullName: "Classical and Quantum Information Processing",
-  tagline: "Shannon Theory · Machine Learning · Hypothesis Testing · Derandomization",
+  tagline: "Shannon Theory · Machine Learning · Hypothesis Testing · Derandomization · Quantum Computation",
   institution: "Indian Institute of Technology Delhi",
   department: "Department of Electrical Engineering",
   logoPlaceholder: null, // Replace with imported image path when ready
@@ -13,13 +13,13 @@ export const SITE = {
 
 // ─── HOMEPAGE ────────────────────────────────────────────────
 export const HOME = {
-  heroHeadline: "Where Classical Theory Meets Quantum Frontier",
+  heroHeadline: "Where Classical and Quantum Information frontiers meet",
   heroSubtext:
-    "The CQuInf group explores the mathematical foundations connecting Shannon information theory with quantum mechanics, machine learning, hypothesis testing, and derandomization.",
+    "The CQuInf group explores the mathematical foundations connecting Shannon information theory with quantum information processing, machine learning, hypothesis testing, and derandomization.",
   primaryTheme: "Shannon Theory and its Connections with Machine Learning, Hypothesis Testing and Derandomization",
   heroImage: null, // Replace with imported image path when available
   introText:
-    "We are a research group at IIT Delhi working at the intersection of information theory, quantum computing, and mathematics. Our work is driven by a desire to understand the deep structural connections between classical and quantum information.",
+    "Hi, I am Aditya. After graduating from ECE background, I moved to study rigorous mathematical ideas in classical and quantum information theory at STCS, TIFR Mumbai. Here, I was extremely fortunate to be advised by Prof. Pranab Sen, someone whom I consider as the dream version of AI :) Then I hopped across country to take up a research position in Japan and then hoped across the continent to do a postdoc at RWTH Aachen, with amazing Mario Berta (https://marioberta.info/). Besides research I am passionate about Badminton and trekking. In the little spare time I try to meditate.",
 };
 
 // ─── PRINCIPAL INVESTIGATOR ──────────────────────────────────
@@ -156,9 +156,21 @@ export const GRANTS = [
 
 // ─── TALKS & PRESENTATIONS ───────────────────────────────────
 export const TALKS = {
-  comingSoon: true,
+  comingSoon: false,
   introText: "Invited talks, conference presentations, and lectures by members of the CQuInf group.",
-  list: [], // Add talks in this format:
+  description: "I have been fortunate to have nice and productive research visits and collaborations in my journey so far. These include:"
+  list: [
+      {
+    id: 1,
+    title: "One-shot reverse Shannon theorem and MAC simulation",
+    event: "IIT Hyderabad",
+    location: "Hyderabad, India",
+    date: "May 2026",
+    // type: "Invited" | "Contributed" | "Seminar",
+    slides: "", // URL to slides
+    video: "", // URL to recording
+  }
+  ], // Add talks in this format:
   // {
   //   id: 1,
   //   title: "Talk Title",
@@ -235,8 +247,9 @@ export const CONTACT = {
 
 // ─── MISC ────────────────────────────────────────────────────
 export const MISC = {
-  comingSoon: true,
-  content: [], // Add miscellaneous content here when ready
+  comingSoon: false,
+  content: [
+  ], // Add miscellaneous content here when ready
 };
 
 // ─── NAVIGATION ──────────────────────────────────────────────
