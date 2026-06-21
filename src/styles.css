@@ -483,7 +483,7 @@ ul, ol { list-style: none; }
 .timeline-item:not(:last-child) .timeline-body::before {
   content: '';
   position: absolute;
-  left: 106px;
+  left: 5px;
   top: 28px;
   bottom: 0;
   width: 1.5px;
@@ -499,8 +499,8 @@ ul, ol { list-style: none; }
 }
 .timeline-dot {
   position: absolute;
-  left: 96px;
-  top: 5px;
+  /* left: 96px; */
+  top: 7px;
   width: 10px;
   height: 10px;
   border-radius: 50%;

@@ -27,61 +27,229 @@ export default function MiscPage() {
               </div>
             </div>
           ) : (
-            <div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
               {MISC.content.map((item, i) => (
-                <div key={i} className="card" style={{ padding: "28px 32px", marginBottom: 16 }}>
-                  {item.title && (
-                    <h3
+                <div key={i}>
+                  {item.type === "about" && (
+                    <div
                       style={{
-                        fontFamily: "var(--font-mono)",
-                        fontWeight: 600,
-                        fontSize: "1rem",
-                        color: "var(--navy)",
-                        marginBottom: 10,
+                        display: "flex",
+                        gap: 40,
+                        alignItems: "stretch",
+                        flexWrap: "wrap",
+                        justifyContent: "center",
                       }}
                     >
-                      {item.title}
-                    </h3>
+                      {item.photo && (
+                        <div style={{
+                          flexShrink: 0,
+                          width: "100%",
+                          
+                          ...(window.innerWidth >= 968? {
+                          width: "400px",
+                          height: "300px",
+                          }:{maxWidth: "280px",}),
+                        }}>
+                          <img
+                            src={item.photo}
+                            alt={item.title}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              borderRadius: "12px",
+                              objectFit: "cover",
+                              boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                              display: "block",
+                            }}
+                          />
+                        </div>
+                      )}
+                      <div style={{ flex: 1, minWidth: "280px" }}>
+                        {item.title && (
+                          <h2
+                            style={{
+                              fontFamily: "var(--font-mono)",
+                              fontWeight: 700,
+                              fontSize: "1.6rem",
+                              color: "var(--navy)",
+                              marginBottom: 20,
+                            }}
+                          >
+                            {item.title}
+                          </h2>
+                        )}
+                        <p
+                          style={{
+                            fontSize: "1rem",
+                            color: "var(--text-muted)",
+                            lineHeight: 1.9,
+                            maxWidth: "800px",
+                          }}
+                        >
+                          {Array.isArray(item.text) ? (
+                            item.text.map((part, idx) =>
+                              typeof part === "string" ? (
+                                <span key={idx}>{part}</span>
+                              ) : part.type === "link" ? (
+                                <a
+                                  key={idx}
+                                  href={part.url}
+                                  target={part.target || "_blank"}
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: "var(--primary)",
+                                    textDecoration: "none",
+                                    fontWeight: 600,
+                                    borderBottom: "2px solid var(--gold)",
+                                    transition: "all 0.2s ease",
+                                    wordBreak: "break-word",
+                                    overflowWrap: "break-word",
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.color = "var(--gold)";
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.color = "var(--primary)";
+                                  }}
+                                >
+                                  {part.label}
+                                </a>
+                              ) : null
+                            )
+                          ) : (
+                            item.text
+                          )}
+                        </p>
+                      </div>
+                    </div>
                   )}
-                  {item.body && (
-                    <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", lineHeight: 1.75 }}>
-                      {item.body}
-                    </p>
+
+                  {item.type === "links" && (
+                    <div>
+                      {item.title && (
+                        <h2
+                          style={{
+                            fontFamily: "var(--font-mono)",
+                            fontWeight: 700,
+                            fontSize: "1.4rem",
+                            color: "var(--navy)",
+                            marginBottom: 28,
+                            paddingBottom: 16,
+                            borderBottom: "2px solid var(--gold)",
+                          }}
+                        >
+                          {item.title}
+                        </h2>
+                      )}
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                          gap: 16,
+                        }}
+                      >
+                        {item.links.map((link, linkIdx) => (
+                          <a
+                            key={linkIdx}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 12,
+                              padding: "16px 20px",
+                              background: "var(--white)",
+                              border: "1px solid var(--border)",
+                              borderRadius: "8px",
+                              textDecoration: "none",
+                              transition: "all 0.2s ease",
+                              cursor: "pointer",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "rgba(0, 102, 204, 0.05)";
+                              e.currentTarget.style.borderColor = "var(--primary)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "var(--white)";
+                              e.currentTarget.style.borderColor = "var(--border)";
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontSize: "1.2rem",
+                                flexShrink: 0,
+                              }}
+                            >
+                              🔗
+                            </span>
+                            <span
+                              style={{
+                                flex: 1,
+                                fontSize: "0.9rem",
+                                color: "var(--primary)",
+                                wordBreak: "break-word",
+                                fontFamily: "var(--font-mono)",
+                              }}
+                            >
+                              {link.title}
+                            </span>
+                          </a>
+                        ))}
+                      </div>
+                      {item.description && (
+                        <p
+                          style={{
+                            fontSize: "0.95rem",
+                            color: "var(--text-muted)",
+                            marginTop: 16,
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {item.description}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {item.type === "text" && (
+                    <div
+                      style={{
+                        background: "var(--white)",
+                        border: "2px solid var(--gold)",
+                        borderRadius: "12px",
+                        padding: "32px",
+                      }}
+                    >
+                      {item.title && (
+                        <h2
+                          style={{
+                            fontFamily: "var(--font-mono)",
+                            fontWeight: 700,
+                            fontSize: "1.3rem",
+                            color: "var(--navy)",
+                            marginBottom: 16,
+                          }}
+                        >
+                          {item.title}
+                        </h2>
+                      )}
+                      <p
+                        style={{
+                          fontSize: "1rem",
+                          color: "var(--text-muted)",
+                          lineHeight: 1.8,
+                          // maxWidth: "600px",
+                        }}
+                      >
+                        {item.text}
+                      </p>
+                    </div>
                   )}
                 </div>
               ))}
             </div>
           )}
-
-          <div
-            style={{
-              background: "var(--white)",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius-lg)",
-              padding: "28px 32px",
-              marginTop: 32,
-              fontSize: "0.85rem",
-              color: "var(--text-muted)",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.68rem",
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "var(--gold)",
-                marginBottom: 8,
-              }}
-            >
-              Update Instructions
-            </div>
-            Add content to <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3 }}>MISC.content</code> in{" "}
-            <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3 }}>src/data/content.js</code>.
-            Set <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3 }}>MISC.comingSoon = false</code> when ready.
-          </div>
-
         </div>
       </section>
     </>

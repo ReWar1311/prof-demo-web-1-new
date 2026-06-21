@@ -15,13 +15,15 @@ export default function HomePage({ navigate }) {
             <div>
               <div className="hero-kicker">{SITE.groupName} · {SITE.institution}</div>
               <h1>
-                Where Classical Theory<br />Meets{" "}
-                <span className="hero-accent">Quantum Frontier</span>
+                {HOME.heroHeadline.split(" Meets ")[0]}
+                <br />
+                Meets{" "}
+                <span className="hero-accent">{HOME.heroHeadline.split(" Meets ")[1]}</span>
               </h1>
               <p className="hero-desc">{HOME.heroSubtext}</p>
 
               <div className="hero-tags">
-                {["Shannon Theory", "Machine Learning", "Hypothesis Testing", "Derandomization", "Quantum Information"].map((t) => (
+                {HOME.heroTags.map((t) => (
                   <span key={t} className="hero-tag">{t}</span>
                 ))}
               </div>
@@ -50,29 +52,17 @@ export default function HomePage({ navigate }) {
                   </div>
                 </div>
                 <div className="pi-card-body">
-                  Principal Investigator of CQuInf. Research spans Shannon information theory,
-                  quantum computing, and the mathematical connections between classical and quantum
-                  information processing.
+                  {HOME.piCardDescription}
                 </div>
               </div>
 
               <div className="hero-stat-row">
-                <div className="hero-stat">
-                  <div className="hero-stat-val">2</div>
-                  <div className="hero-stat-label">Active Grants</div>
-                </div>
-                <div className="hero-stat">
-                  <div className="hero-stat-val">5</div>
-                  <div className="hero-stat-label">Research Areas</div>
-                </div>
-                <div className="hero-stat">
-                  <div className="hero-stat-val">3</div>
-                  <div className="hero-stat-label">Group Members</div>
-                </div>
-                <div className="hero-stat">
-                  <div className="hero-stat-val">'26</div>
-                  <div className="hero-stat-label">Founded</div>
-                </div>
+                {HOME.stats.map((stat) => (
+                  <div className="hero-stat" key={stat.label}>
+                    <div className="hero-stat-val">{stat.value}</div>
+                    <div className="hero-stat-label">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -127,14 +117,10 @@ export default function HomePage({ navigate }) {
                 {HOME.introText}
               </p>
               <p>
-                The group is rooted in mathematical rigor, exploring deep structural results
-                in information theory and their extensions to quantum systems. We welcome
-                individuals with strong mathematical backgrounds and a genuine curiosity
-                about the mathematical foundations of computing and communication.
+                {HOME.aboutDescription}
               </p>
               <p>
-                We are part of the Department of Electrical Engineering at IIT Delhi,
-                one of India's premier research institutions.
+                {HOME.institutionText}
               </p>
 
               <div className="research-tags">
@@ -165,8 +151,7 @@ export default function HomePage({ navigate }) {
               Areas of Investigation
             </h2>
             <p>
-              Our work explores the mathematical architecture of information — from Shannon's
-              classical foundations to the quantum mechanical generalizations.
+              {HOME.researchDescription}
             </p>
           </div>
 
@@ -211,8 +196,7 @@ export default function HomePage({ navigate }) {
               fontSize: "0.95rem",
             }}
           >
-            We are looking for mathematically inclined B.Tech., MS(R), PhD students and postdocs
-            with a passion for rigorous mathematics and information theory.
+            {HOME.ctaText}
           </p>
           <button className="btn btn-primary" onClick={() => navigate("/contact")}>
             Contact & Open Positions →

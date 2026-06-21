@@ -76,7 +76,7 @@ export default function ResearchPage() {
           </div>
 
           {/* Publications placeholder */}
-          <div className="divider-full" />
+          {/* <div className="divider-full" />
           <div>
             <div className="eyebrow" style={{ marginBottom: 12 }}>Publications & Preprints</div>
             <div
@@ -95,10 +95,10 @@ export default function ResearchPage() {
               </div>
               <div style={{ fontSize: "0.8rem", marginTop: 6, opacity: 0.7 }}>
                 To add publications, update the <code>RESEARCH.publications</code> array in{" "}
-                <code>src/data/content.js</code>.
+                <code>src/data/content.jsx</code>.
               </div>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>
