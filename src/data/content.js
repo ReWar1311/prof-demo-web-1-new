@@ -158,7 +158,7 @@ export const GRANTS = [
 export const TALKS = {
   comingSoon: false,
   introText: "Invited talks, conference presentations, and lectures by members of the CQuInf group.",
-  description: "I have been fortunate to have nice and productive research visits and collaborations in my journey so far. These include:"
+  description: "I have been fortunate to have nice and productive research visits and collaborations in my journey so far. These include:",
   list: [
       {
     id: 1,
