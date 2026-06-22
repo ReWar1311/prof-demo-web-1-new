@@ -35,7 +35,7 @@ cquinf-website/
     ├── App.jsx                 # Router & shell
     ├── styles.css              # All global styles & design tokens
     ├── data/
-    │   └── content.js         ← EDIT ALL TEXT CONTENT HERE
+    │   └── content.jsx         ← EDIT ALL TEXT CONTENT HERE
     ├── components/
     │   ├── Navbar.jsx
     │   ├── Footer.jsx
@@ -57,12 +57,12 @@ cquinf-website/
 **All site text, names, links, and data live in one file:**
 
 ```
-src/data/content.js
+src/data/content.jsx
 ```
 
 ### Adding a photo (PI / member / group)
 1. Place your image in `src/assets/` (e.g. `src/assets/aditya.jpg`)
-2. In `content.js`, import it at the top:
+2. In `content.jsx`, import it at the top:
    ```js
    import adityaPhoto from '../assets/aditya.jpg'
    ```
@@ -72,7 +72,7 @@ src/data/content.js
    ```
 
 ### Adding a publication
-In `content.js`, add to `RESEARCH.publications`:
+In `content.jsx`, add to `RESEARCH.publications`:
 ```js
 {
   title: "Paper Title",
@@ -86,7 +86,7 @@ In `content.js`, add to `RESEARCH.publications`:
 Then set `RESEARCH.comingSoon = false` and update `ResearchPage.jsx` to render them.
 
 ### Adding a talk
-In `content.js`, add to `TALKS.list`:
+In `content.jsx`, add to `TALKS.list`:
 ```js
 {
   id: 1,
@@ -102,7 +102,7 @@ In `content.js`, add to `TALKS.list`:
 Then set `TALKS.comingSoon = false`.
 
 ### Adding a group member
-In `content.js`, add to the appropriate `GROUP.members` array:
+In `content.jsx`, add to the appropriate `GROUP.members` array:
 ```js
 {
   name: "Full Name",
@@ -115,7 +115,7 @@ In `content.js`, add to the appropriate `GROUP.members` array:
 Available categories: `pi`, `btech`, `jrf` — add more categories as needed and update `GroupPage.jsx`.
 
 ### Enabling the Misc page
-1. Set `MISC.comingSoon = false` in `content.js`
+1. Set `MISC.comingSoon = false` in `content.jsx`
 2. Add entries to `MISC.content`:
 ```js
 { title: "Section Title", body: "Content text..." }

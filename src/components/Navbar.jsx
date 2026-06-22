@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NAV_LINKS, SITE } from "../data/content";
+import { NAV_LINKS, SITE } from "../data/content.jsx";
 
 export default function Navbar({ currentPath, navigate }) {
   const [mobileOpen, setMobileOpen] = useState(false);

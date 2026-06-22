@@ -23,10 +23,23 @@ export default function GrantsPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             {GRANTS.map((grant) => (
               <div className="grant-card" key={grant.id}>
-                <div className="grant-badge">
-                  <div className="grant-agency">{grant.agency}</div>
-                  <div className="grant-scheme-short">{grant.scheme.split(" ").slice(-2).join(" ")}</div>
-                </div>
+                {grant.image ? (
+                  <img
+                    src={grant.image}
+                    alt={grant.agency}
+                    style={{
+                      width: "120px",
+                      height: "120px",
+                      objectFit: "contain",
+                      borderRadius: "8px",
+                    }}
+                  />
+                ) : (
+                  <div className="grant-badge">
+                    <div className="grant-agency">{grant.agency}</div>
+                    <div className="grant-scheme-short">{grant.scheme.split(" ").slice(-2).join(" ")}</div>
+                  </div>
+                )}
                 <div>
                   <div className="grant-title">{grant.title}</div>
                   <div className="grant-scheme">{grant.scheme}</div>
@@ -61,7 +74,7 @@ export default function GrantsPage() {
             className="divider-full"
             style={{ marginTop: 56 }}
           />
-          <div
+          {/* <div
             style={{
               background: "var(--white)",
               border: "1px solid var(--border)",
@@ -85,8 +98,8 @@ export default function GrantsPage() {
               Update Instructions
             </div>
             To add or update grants, edit the <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3, fontSize: "0.82rem" }}>GRANTS</code> array in{" "}
-            <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3, fontSize: "0.82rem" }}>src/data/content.js</code>.
-          </div>
+            <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3, fontSize: "0.82rem" }}>src/data/content.jsx</code>.
+          </div> */}
         </div>
       </section>
     </>

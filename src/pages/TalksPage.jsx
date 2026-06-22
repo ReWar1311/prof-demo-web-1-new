@@ -43,6 +43,11 @@ function TalkCard({ talk }) {
           <div style={{ fontSize: "0.82rem", color: "var(--slate)", marginTop: 4 }}>
             {talk.location} · {talk.date}
           </div>
+          {talk.note && (
+            <div style={{ fontSize: "0.8rem", color: "var(--slate)", marginTop: 4, fontStyle: "italic" }}>
+              {talk.note}
+            </div>
+          )}
         </div>
         <div style={{ display: "flex", gap: 10, flexShrink: 0 }}>
           {talk.slides && (
@@ -78,7 +83,7 @@ export default function TalksPage() {
     <>
       <PageHero
         eyebrow="CQuInf · Dissemination"
-        title="Talks & Presentations"
+        title="Talks and Travel"
         subtitle={TALKS.introText}
       />
 
@@ -100,6 +105,22 @@ export default function TalksPage() {
             </div>
           ) : (
             <>
+              {TALKS.description && (
+                <div
+                  style={{
+                    fontSize: "0.95rem",
+                    color: "var(--text-muted)",
+                    lineHeight: 1.75,
+                    marginBottom: 32,
+                    padding: "20px",
+                    background: "var(--bg-light)",
+                    borderLeft: "4px solid var(--primary)",
+                    borderRadius: "4px",
+                  }}
+                >
+                  {TALKS.description}
+                </div>
+              )}
               {/* Group by type: Invited first */}
               {["Invited", "Seminar", "Contributed"].map((type) => {
                 const filtered = TALKS.list.filter((t) => t.type === type);
@@ -130,7 +151,7 @@ export default function TalksPage() {
             </>
           )}
 
-          <div
+          {/* <div
             style={{
               background: "var(--white)",
               border: "1px solid var(--border)",
@@ -155,9 +176,9 @@ export default function TalksPage() {
               Update Instructions
             </div>
             Add talks to the <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3, fontSize: "0.82rem" }}>TALKS.list</code> array in{" "}
-            <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3, fontSize: "0.82rem" }}>src/data/content.js</code>.
+            <code style={{ background: "#f0f0f0", padding: "1px 5px", borderRadius: 3, fontSize: "0.82rem" }}>src/data/content.jsx</code>.
             Each entry supports: title, event, location, date, type (Invited/Contributed/Seminar), slides URL, video URL.
-          </div>
+          </div> */}
 
         </div>
       </section>
