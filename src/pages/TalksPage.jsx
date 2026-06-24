@@ -3,11 +3,9 @@ import { TALKS } from "../data/content";
 
 function TalkCard({ talk }) {
   return (
-    <div className="timeline-row timeline-row-talk">
+    <div className="timeline-row">
       <div className="timeline-meta">
-        <div>{talk.event}</div>
-        <div>{talk.location}</div>
-        <div>{talk.date}</div>
+        {talk.date}
       </div>
 
       <div className="timeline-content">
@@ -31,8 +29,14 @@ function TalkCard({ talk }) {
             {talk.type}
           </div>
         )}
-        <div className="timeline-title" style={{ marginBottom: talk.note ? 6 : 0 }}>
+        <div className="talk-title" style={{ marginBottom: talk.note ? 6 : 0 }}>
           {talk.title}
+        </div>
+        <div className="talk-venue">
+          {talk.event}
+        </div>
+        <div className="talk-location">
+          {talk.location}
         </div>
         {talk.note && (
           <div className="timeline-note">

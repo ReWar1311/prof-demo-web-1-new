@@ -872,10 +872,6 @@ ul, ol { list-style: none; }
   padding: 0 0 24px;
   align-items: start;
 }
-.timeline-row-talk {
-  --timeline-meta-width: 210px;
-  padding-bottom: 28px;
-}
 .timeline-row-teaching {
   --timeline-meta-width: 112px;
   padding-bottom: 28px;
@@ -932,6 +928,27 @@ ul, ol { list-style: none; }
   flex-wrap: wrap;
   margin-top: 14px;
 }
+.talk-title {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.talk-venue {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--gold);
+  line-height: 1.6;
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+.talk-location {
+  font-size: 0.82rem;
+  color: var(--slate);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
 @media (max-width: 760px) {
   .timeline-card,
   .timeline-card-talks,
@@ -939,13 +956,9 @@ ul, ol { list-style: none; }
     padding: 24px 22px 2px;
   }
   .timeline-row,
-  .timeline-row-talk,
   .timeline-row-teaching {
     --timeline-meta-width: 108px;
     gap: 0 18px;
-  }
-  .timeline-row-talk {
-    --timeline-meta-width: 150px;
   }
 }
 @media (max-width: 560px) {
@@ -955,23 +968,37 @@ ul, ol { list-style: none; }
     padding: 22px 18px 0;
   }
   .timeline-row,
-  .timeline-row-talk,
   .timeline-row-teaching {
     display: block;
     padding-bottom: 30px;
   }
+  .timeline-row:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 42px;
+    height: 1px;
+    background: rgba(200,146,42,0.35);
+    margin-top: 22px;
+  }
   .timeline-meta {
     text-align: left;
-    padding: 0 0 8px 20px;
+    padding: 0 0 8px;
     font-size: 0.7rem;
   }
   .timeline-content {
-    padding-left: 20px;
+    padding-left: 0;
+  }
+  .timeline-dot {
+    display: none;
   }
   .timeline-title {
     font-size: 0.94rem;
   }
   .timeline-text {
+    font-size: 0.86rem;
+    line-height: 1.7;
+  }
+  .talk-title {
     font-size: 0.86rem;
     line-height: 1.7;
   }
