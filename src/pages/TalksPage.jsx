@@ -3,18 +3,22 @@ import { TALKS } from "../data/content";
 
 function TalkCard({ talk }) {
   return (
-    <div
-      className="card"
-      style={{ padding: "28px 32px", marginBottom: 16 }}
-    >
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16, flexWrap: "wrap" }}>
-        <div style={{ flex: 1 }}>
+    <div className="timeline-row timeline-row-talk">
+      <div className="timeline-meta">
+        <div>{talk.event}</div>
+        <div>{talk.location}</div>
+        <div>{talk.date}</div>
+      </div>
+
+      <div className="timeline-content">
+        <div className="timeline-dot" />
+        {talk.type && (
           <div
             style={{
               display: "inline-block",
               fontFamily: "var(--font-mono)",
-              fontSize: "0.68rem",
               fontWeight: 600,
+              fontSize: "0.68rem",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: talk.type === "Invited" ? "var(--gold)" : "var(--slate)",
@@ -26,53 +30,88 @@ function TalkCard({ talk }) {
           >
             {talk.type}
           </div>
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontWeight: 600,
-              fontSize: "1rem",
-              color: "var(--navy)",
-              marginBottom: 6,
-            }}
-          >
-            {talk.title}
-          </div>
-          <div style={{ fontSize: "0.88rem", color: "var(--text-muted)" }}>
-            {talk.event}
-          </div>
-          <div style={{ fontSize: "0.82rem", color: "var(--slate)", marginTop: 4 }}>
-            {talk.location} · {talk.date}
-          </div>
-          {talk.note && (
-            <div style={{ fontSize: "0.8rem", color: "var(--slate)", marginTop: 4, fontStyle: "italic" }}>
-              {talk.note}
-            </div>
-          )}
+        )}
+        <div className="timeline-title" style={{ marginBottom: talk.note ? 6 : 0 }}>
+          {talk.title}
         </div>
-        <div style={{ display: "flex", gap: 10, flexShrink: 0 }}>
-          {talk.slides && (
-            <a
-              href={talk.slides}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline"
-              style={{ fontSize: "0.72rem", padding: "7px 14px" }}
-            >
-              Slides
-            </a>
-          )}
-          {talk.video && (
-            <a
-              href={talk.video}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-              style={{ fontSize: "0.72rem", padding: "7px 14px" }}
-            >
-              Video
-            </a>
-          )}
+        {talk.note && (
+          <div className="timeline-note">
+            {talk.note}
+          </div>
+        )}
+        {(talk.slides || talk.video) && (
+          <div className="timeline-links">
+            {talk.slides && (
+              <a
+                href={talk.slides}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+                style={{ fontSize: "0.72rem", padding: "7px 14px" }}
+              >
+                Slides
+              </a>
+            )}
+            {talk.video && (
+              <a
+                href={talk.video}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+                style={{ fontSize: "0.72rem", padding: "7px 14px" }}
+              >
+                Video
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DetailRow({ item }) {
+  const period = [item.period, item.duration].filter(Boolean).join(" · ");
+
+  return (
+    <div className="timeline-row">
+      <div className="timeline-meta">
+        {period}
+      </div>
+      <div className="timeline-content">
+        <div className="timeline-dot" />
+        <div className="timeline-text">
+          {item.description}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function DetailSection({ title, items }) {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <div style={{ marginTop: 48 }}>
+      <div
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "0.68rem",
+          fontWeight: 600,
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          color: "var(--gold)",
+          marginBottom: 20,
+          paddingBottom: 10,
+          borderBottom: "1px solid var(--border)",
+        }}
+      >
+        {title}
+      </div>
+      <div className="card timeline-card">
+        {items.map((item) => (
+          <DetailRow key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );
@@ -122,11 +161,16 @@ export default function TalksPage() {
                 </div>
               )}
               {/* Group by type: Invited first */}
-              {["Invited", "Seminar", "Contributed"].map((type) => {
+              {[
+                { type: "Invited", label: "Invited Talks" },
+                { type: "Seminar", label: "Seminar Talks" },
+                { type: "Contributed", label: "Contributed Talks" },
+                { type: undefined, label: "Talks" },
+              ].map(({ type, label }) => {
                 const filtered = TALKS.list.filter((t) => t.type === type);
                 if (filtered.length === 0) return null;
                 return (
-                  <div key={type} style={{ marginBottom: 48 }}>
+                  <div key={label}>
                     <div
                       style={{
                         fontFamily: "var(--font-mono)",
@@ -140,14 +184,28 @@ export default function TalksPage() {
                         borderBottom: "1px solid var(--border)",
                       }}
                     >
-                      {type} Talks
+                      {label}
                     </div>
+                    <div className="card timeline-card timeline-card-talks">
                     {filtered.map((talk) => (
                       <TalkCard key={talk.id} talk={talk} />
-                    ))}
+                    ))}</div>
                   </div>
                 );
               })}
+
+              <DetailSection
+                title={TALKS.researchVisitsTitle}
+                items={TALKS.researchVisits}
+              />
+              <DetailSection
+                title={TALKS.scientificActivitiesTitle}
+                items={TALKS.scientificActivities}
+              />
+              <DetailSection
+                title={TALKS.outreachTitle}
+                items={TALKS.outreach}
+              />
             </>
           )}
 

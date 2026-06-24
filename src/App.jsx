@@ -6,6 +6,7 @@ import GroupPage from "./pages/GroupPage";
 import ResearchPage from "./pages/ResearchPage";
 import GrantsPage from "./pages/GrantsPage";
 import TalksPage from "./pages/TalksPage";
+import TeachingPage from "./pages/TeachingPage";
 import ContactPage from "./pages/ContactPage";
 import MiscPage from "./pages/MiscPage";
 import "./styles.css";
@@ -16,6 +17,7 @@ const ROUTES = {
   "/research": ResearchPage,
   "/grants": GrantsPage,
   "/talks": TalksPage,
+  "/teaching": TeachingPage,
   "/contact": ContactPage,
   "/misc": MiscPage,
 };

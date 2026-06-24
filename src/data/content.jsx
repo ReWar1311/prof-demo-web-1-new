@@ -177,6 +177,9 @@ export const TALKS = {
   comingSoon: false,
   introText: "Invited talks, conference presentations, and lectures by members of the CQuInf group.",
   description: "I have been fortunate to have nice and productive research visits and collaborations in my journey so far. These include:",
+  researchVisitsTitle: "Research Visits and Collaborations",
+  scientificActivitiesTitle: "Scientific Activities",
+  outreachTitle: "Outreach & Professional Development",
   list: [
     {
       id: 1,
@@ -184,7 +187,7 @@ export const TALKS = {
       event: "IIT Hyderabad",
       location: "Hyderabad, India",
       date: "May 2026",
-      type: "Invited",
+      // type: "Invited",
       slides: "",
       video: "",
     },
@@ -194,7 +197,7 @@ export const TALKS = {
       event: "IIIT Delhi",
       location: "Delhi, India",
       date: "April 2026",
-      type: "Invited",
+      // type: "Invited",
       slides: "",
       video: "",
     },
@@ -204,7 +207,7 @@ export const TALKS = {
       event: "BIID'24",
       location: "UIUC, USA",
       date: "July 2024",
-      type: "Contributed",
+      // type: "Contributed",
       slides: "",
       video: "",
     },
@@ -214,7 +217,7 @@ export const TALKS = {
       event: "ISIT-2024",
       location: "Athens, Greece",
       date: "June 2024",
-      type: "Contributed",
+      // type: "Contributed",
       slides: "",
       video: "",
     },
@@ -224,7 +227,7 @@ export const TALKS = {
       event: "ISIT",
       location: "Taipei, Taiwan",
       date: "June 2023",
-      type: "Invited",
+      // type: "Invited",
       slides: "",
       video: "",
     },
@@ -234,7 +237,7 @@ export const TALKS = {
       event: "SuSTech",
       location: "Shenzhen, China",
       date: "March 2022",
-      type: "Invited",
+      // type: "Invited",
       slides: "",
       video: "",
     },
@@ -244,7 +247,7 @@ export const TALKS = {
       event: "BIID 2020",
       location: "Sydney, Australia",
       date: "November 2020",
-      type: "Invited",
+      // type: "Invited",
       slides: "",
       video: "",
     },
@@ -254,7 +257,7 @@ export const TALKS = {
       event: "University of Maryland",
       location: "USA",
       date: "June 2019",
-      type: "Invited",
+      // type: "Invited",
       slides: "",
       video: "",
     },
@@ -264,10 +267,117 @@ export const TALKS = {
       event: "QIP",
       location: "University of Colorado, Boulder, USA",
       date: "January 2019",
-      type: "Seminar",
+      // type: "Seminar",
       slides: "",
       video: "",
       note: "(On behalf of Prof. Pranab Sen)",
+    },
+  ],
+  researchVisits: [
+    {
+      id: 1,
+      period: "2024.07",
+      duration: "1 week",
+      description:
+        "Research visit with oral presentation, hosted by Prof. Aram Harrow at Center for Theoretical Physics, Massachusetts Institute of Technology (MIT), USA.",
+    },
+    {
+      id: 2,
+      period: "2024.08",
+      duration: "1 week",
+      description:
+        "Research visit with oral presentation, hosted by Prof. Anurag Anshu at Department of Computer Science, Harvard University, USA.",
+    },
+    {
+      id: 3,
+      period: "2022.12",
+      duration: "2 weeks",
+      description:
+        "Research visit including oral presentation and culminating in a publication, hosted by Prof. David Elkouss at Networked Quantum Devices Unit, Okinawa Institute of Science and Technology (OIST), Okinawa, Japan.",
+    },
+    {
+      id: 4,
+      period: "2022.03",
+      duration: "3 weeks",
+      description:
+        "Research visit including oral presentation and culminating in a publication, hosted by Prof. David Elkouss at Networked Quantum Devices Unit, Okinawa Institute of Science and Technology (OIST), Okinawa, Japan.",
+    },
+    {
+      id: 5,
+      period: "2019.02",
+      duration: "2 weeks",
+      description:
+        "Research visit including oral presentation, hosted by Prof. Patrick Hayden at Stanford Institute of Theoretical Physics (SITP), Stanford University, USA.",
+    },
+  ],
+  scientificActivities: [
+    {
+      id: 1,
+      period: "2024.07",
+      duration: "1 week",
+      description:
+        "Program Committee Member for annual conference \"Beyond IID in Information Theory'24\" at University of Illinois at Urbana Champaign, USA.",
+    },
+    {
+      id: 2,
+      period: "2020–Present",
+      duration: "",
+      description:
+        "Referee, reviewer and sub-reviewer for leading international journals, conferences and workshops including: IEEE Transactions in Information Theory, Nature Communications, TQC, QIP, ISIT, ITW, BIID, QCrypt.",
+    },
+  ],
+  outreach: [
+    {
+      id: 1,
+      period: "2017",
+      description: "Science Fair volunteer at TIFR, Mumbai, India.",
+    },
+    {
+      id: 2,
+      period: "",
+      description:
+        "Actively attended several workshops and conferences including: QIP, TQC, BIID and Quantum Resource Theory as an oral presenter and also poster presenter.",
+    },
+  ],
+};
+
+// ─── TEACHING ────────────────────────────────────────────────
+export const TEACHING = {
+  comingSoon: false,
+  heroEyebrow: "CQuInf · Teaching",
+  heroTitle: "Teaching",
+  introText: "Teaching experience in quantum information, statistical mechanics, and probability theory.",
+  sectionTitle: "Teaching Experience",
+  list: [
+    {
+      id: 1,
+      term: "Spring 2024",
+      course: "Quantum Computation and Information",
+      level: "Graduate Level",
+      department: "Department of Physics",
+      institution: "RWTH Aachen, Germany",
+      role: "Tutor",
+      description: "As a tutor including preparing some exercise sheets and solutions.",
+    },
+    {
+      id: 2,
+      term: "Fall 2023",
+      course: "Statistical Mechanics",
+      level: "Bachelors Level",
+      department: "Department of Physics",
+      institution: "RWTH Aachen, Germany",
+      role: "Tutor",
+      description: "As a tutor and also assisting in problem solving discussions.",
+    },
+    {
+      id: 3,
+      term: "Fall 2012",
+      course: "Probability Theory",
+      level: "Bachelors Level",
+      department: "Department of Electrical Engineering",
+      institution: "IIT Indore, India",
+      role: "Tutor",
+      description: "As a tutor and also occasionally teaching.",
     },
   ],
 };
@@ -408,6 +518,7 @@ export const NAV_LINKS = [
   { id: "research", label: "Research", path: "/research" },
   { id: "grants", label: "Grants", path: "/grants" },
   { id: "talks", label: "Talks and Travel", path: "/talks" },
+  { id: "teaching", label: "Teaching", path: "/teaching" },
   { id: "contact", label: "Contact & Positions", path: "/contact" },
   { id: "misc", label: "Misc", path: "/misc" },
 ];

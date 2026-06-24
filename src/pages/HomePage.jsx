@@ -15,10 +15,11 @@ export default function HomePage({ navigate }) {
             <div>
               <div className="hero-kicker">{SITE.groupName} · {SITE.institution}</div>
               <h1>
-                {HOME.heroHeadline.split(" Meets ")[0]}
+                {HOME.heroHeadline.split("and")[0]}
                 <br />
-                Meets{" "}
-                <span className="hero-accent">{HOME.heroHeadline.split(" Meets ")[1]}</span>
+                and{" "}
+                <span className="hero-accent">{HOME.heroHeadline.split("and")[1].split("Information")[0]} Information</span>
+                {HOME.heroHeadline.split("Information")[1]}
               </h1>
               <p className="hero-desc">{HOME.heroSubtext}</p>
 
