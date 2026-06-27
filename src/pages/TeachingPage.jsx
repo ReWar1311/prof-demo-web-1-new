@@ -13,7 +13,7 @@ function TeachingItem({ item }) {
           {item.course}
         </div>
         <div className="timeline-text">
-          {item.level} in the {item.department}, {item.institution}.
+          {item.summary || `${item.level} in the ${item.department}, ${item.institution}.`}
         </div>
         <div className="timeline-note">
           {item.description}

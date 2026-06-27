@@ -13,7 +13,7 @@ export const SITE = {
 
 // ─── HOMEPAGE ────────────────────────────────────────────────
 export const HOME = {
-  heroHeadline: "Where Classical and Quantum Information frontiers meets",
+  heroHeadline: "Where Classical and Quantum Information frontiers meet",
   heroSubtext:
     "The CQuInf group explores the mathematical foundations connecting Shannon information theory with quantum information processing, machine learning, hypothesis testing, and derandomization.",
   primaryTheme: "Shannon Theory and its Connections with Machine Learning, Hypothesis Testing, Derandomization, and Quantum Information Processing",
@@ -351,6 +351,34 @@ export const TEACHING = {
   list: [
     {
       id: 1,
+      term: "Spring 2026",
+      course: "Mathematics for AI (MA 513)",
+      summary: "Half course in the Department of Mathematics, IIT Gandhinagar.",
+      description: "Covered linear algebra and probability theory and applications to PCA, SVP, binary classification, PAC learning, and VC dimensions.",
+    },
+    {
+      id: 2,
+      term: "Spring 2026",
+      course: "Classical Information Theory (ES676)",
+      summary: "Half course, IIT Gandhinagar.",
+      description: "Covered entropy, convergence of random variables, and Shannon's source and channel coding theorem.",
+    },
+    {
+      id: 3,
+      term: "Spring 2026",
+      course: "Quantum Error Correction",
+      summary: "Half course, IIT Gandhinagar.",
+      description: "Covered basics of quantum error correction including repetition codes, CSS codes, Shor's 9-qubit code, and an introduction to stabilizer formalism and the toric code.",
+    },
+    {
+      id: 4,
+      term: "Fall 2025",
+      course: "Mathematical Foundations for Information Theory",
+      summary: "Half course, IIT Gandhinagar.",
+      description: "Covered parts of real analysis, measure-theoretic probability, and basics of information theory. Received: Appreciation for teaching.",
+    },
+    {
+      id: 5,
       term: "Spring 2024",
       course: "Quantum Computation and Information",
       level: "Graduate Level",
@@ -360,7 +388,7 @@ export const TEACHING = {
       description: "As a tutor including preparing some exercise sheets and solutions.",
     },
     {
-      id: 2,
+      id: 6,
       term: "Fall 2023",
       course: "Statistical Mechanics",
       level: "Bachelors Level",
@@ -368,16 +396,6 @@ export const TEACHING = {
       institution: "RWTH Aachen, Germany",
       role: "Tutor",
       description: "As a tutor and also assisting in problem solving discussions.",
-    },
-    {
-      id: 3,
-      term: "Fall 2012",
-      course: "Probability Theory",
-      level: "Bachelors Level",
-      department: "Department of Electrical Engineering",
-      institution: "IIT Indore, India",
-      role: "Tutor",
-      description: "As a tutor and also occasionally teaching.",
     },
   ],
 };
@@ -454,8 +472,10 @@ export const MISC = {
       type: "about",
       photo: "./prof.png",
       text: [
-        `Hi, I am Aditya. After graduating from ECE background, I moved to study rigorous mathematical ideas in classical and quantum information theory at STCS, TIFR Mumbai. Here, I was extremely fortunate to be advised by Prof. Pranab Sen, someone whom I consider as the dream version of AI :) Then I hopped across country to take up a research position in Japan and then hoped across the continent to do a postdoc at RWTH Aachen, with amazing Mario Berta `,
-        { type: "link", url: "https://marioberta.info/", label: "https://marioberta.info/", target: "_blank" },
+        `Hi, I am Aditya. After graduating from ECE background, I moved to study rigorous mathematical ideas in classical and quantum information theory at STCS, TIFR Mumbai. Here, I was extremely fortunate to be advised by `,
+        { type: "link", url: "https://www.tcs.tifr.res.in/~pgdsen/", label: "Prof. Pranab Sen", target: "_blank" },
+        `, someone whom I consider as the dream version of AI :) Then I hopped across country to take up a research position in Japan and then hoped across the continent to do a postdoc at RWTH Aachen, with amazing `,
+        { type: "link", url: "https://marioberta.info/", label: "Prof. Mario Berta", target: "_blank" },
         `. Besides research I am passionate about Badminton and trekking. In the little spare time I try to meditate.`
       ],
     },
